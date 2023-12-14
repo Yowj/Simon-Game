@@ -8,7 +8,7 @@ var level = 0;
 
 //////start
 
-$(document).keypress(function() {
+$(document).on("keypress click",function() {
     if (!started) {
       nextSequence();
       started = true;
@@ -38,9 +38,6 @@ if (gamePattern.length===playerPattern.length && gamePattern[level - 1]===player
 
 else if (gamePattern[playerPattern.length-1]!==playerPattern[playerPattern.length-1]){
     wrong();
-    started = false;
-    level = 0;
-
 }
 }
 
@@ -78,11 +75,14 @@ function wrong(){
     setTimeout(function(){
         $("body").removeClass("red"); 
     }, 200)
-    $("#level-title").text("Press any key to restart");
-    var started = false;
-    var level = 0;
-    playerPattern.length = 0;
-    gamePattern.length = 0;
+    $("#level-title").text("Nice try pa rin! Press click kahit saan para umulit");
+    
+    setTimeout(function(){
+        started = false;
+        level = 0;
+        playerPattern.length = 0;
+        gamePattern.length = 0; 
+    }, 100)
 
 }
 
