@@ -8,12 +8,21 @@ var level = 0;
 
 //////start
 
-$(document).on("keypress click",function() {
+$(document).on("keypress", function() {
+    startGame();
+});
+
+// Start the game on click
+$(document).on("click", function() {
+    startGame();
+});
+
+function startGame() {
     if (!started) {
-      nextSequence();
-      started = true;
+        nextSequence();
+        started = true;
     }
-  });  
+}
 /////
 
     
